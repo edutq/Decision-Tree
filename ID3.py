@@ -1,4 +1,5 @@
 import fileinput
+import re
 
 def decision_tree(dataframe, data_types):
 	return 0
@@ -13,13 +14,14 @@ if __name__ == "__main__":
 	for line in fileinput.input():
 
 		if "@attribute" in line:
-			words =line.split(' ', 2)
-			
+			words =re.split("[ \t]+|[ \t]+$", line,2)
+			#print(words)
 			attributes.append(words[1])
 			words[2] = words[2].replace('{', "")
 			words[2] = words[2].replace('}', "")
 			words[2] = words[2].replace(' ', "")
 			words[2] = words[2].replace('\n', "")
+			#print(words[2])
 			values = words[2].split(',')
 			values_list = []
 			for val in values:
@@ -37,7 +39,11 @@ if __name__ == "__main__":
 
 		if "@data" in line:
 			data_flag = True
+	#print(attributes)
 	dataframe.append(attributes)
 	for element in data:
 		dataframe.append(element)
+	for element in dataframe:
+		print(element)
+	print(data_types)
 	decision_tree(dataframe, data_types)
