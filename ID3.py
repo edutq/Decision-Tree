@@ -1,6 +1,24 @@
 import fileinput
 import re
 
+class Node:
+	def __init__(self, name, entropy, children, father):
+		self.entropy = entropy
+		self.name = name
+		self.children = children
+		self.father = father
+
+	def setEntropy(self, ent):
+		self.entropy = ent
+
+	def setChildren(self, newChild):
+		self.children.append(newChild)
+
+	def setFather(self, newFather):
+		self.father = newFather
+
+	
+
 def decision_tree(dataframe, data_types):
 	return 0
 
