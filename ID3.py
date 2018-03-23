@@ -6,7 +6,7 @@ class Node:
 		self.entropy = entropy
 		self.name = name
 		self.children = children
-		self.father = father
+		self.father =  father
 
 	def setEntropy(self, ent):
 		self.entropy = ent
@@ -17,9 +17,16 @@ class Node:
 	def setFather(self, newFather):
 		self.father = newFather
 
-	
+
+def calculate_entropy(node, dataframe, data_types):
+
+
+
+	return nodes
+
 
 def decision_tree(dataframe, data_types):
+	
 	return 0
 
 if __name__ == "__main__":
