@@ -35,6 +35,8 @@ class Node:
 
 def ID3(node, root, data_types, visited_list):
 	
+	#print(root.dataframe[0][node.number])
+	#print(visited_list)
 	new_list = copy.deepcopy(visited_list)
 	node.entropy = calculate_entropy(node, root, data_types)
 	#print(node)
@@ -51,9 +53,10 @@ def ID3(node, root, data_types, visited_list):
 		if i not in visited_list:
 			next_node = Node(node.dataframe[0][i], None, None, node, i, node.dataframe, None, None)
 			gains[node.dataframe[0][i]] = information_gain(node, next_node, root, data_types)
-
+	#print(gains)
 	split_to_node = find_greater_gain(gains)
 
+	#print(split_to_node)
 	new_number = root.dataframe[0].index(split_to_node)
 	new_list.append(new_number)
 
@@ -181,4 +184,3 @@ if __name__ == "__main__":
 	for element in data:
 		dataframe.append(element)
 	decision_tree(dataframe, data_types)
-	
